@@ -1,0 +1,11 @@
+instance/
+*.pyc
+.DS_Store
+.coverage
+.env
+env/
+gen/
+.webassets-cache
+bower_components/
+node_modules/
+.vagrant/

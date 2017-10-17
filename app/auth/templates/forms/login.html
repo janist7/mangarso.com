@@ -1,0 +1,35 @@
+{% from 'components/field.html' import render_field %}
+{% from 'components/google_login.html' import google_login_button,google_login_script %}
+{% from 'components/facebook_login.html' import facebook_login_button %}
+{% extends "layouts/main.html" %}
+
+{% block title %}{% trans %}Login{% endtrans %}{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+    <form method="POST" action="{{ request.url }}">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Login</h3>
+            </div>
+            <div class="panel-body">
+                {{ form.csrf_token }}
+                {{ render_field(form.username) }}
+                {{ render_field(form.password) }}
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-default" style="margin-right: 1em;">
+                    <i class="icon-signin"></i> {% trans %}Login{% endtrans %}
+                </button>
+                <a class="btn-google" type="submit" id="signInButton" style="margin-right: 1em;">
+                    {{ google_login_button() }}
+                </a>
+                    {{ google_login_script() }}
+                <span style="margin-right: 1em;">{% trans %}or{% endtrans %}</span>
+                <a href="{{ url_for('auth.register') }}">{% trans %}Register{% endtrans %}</a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

