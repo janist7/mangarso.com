@@ -77,13 +77,18 @@ def register():
     form = RegisterUserForm()
     if form.validate_on_submit():
         try:
+            user = controller.createNewUser(form.data['username'],
+                                            form.data['email'],
+                                            form.data['password'],
+                                            request.remote_addr)
             s = URLSafeSerializer(current_app.secret_key)
             token = s.dumps(user.id)
             send_registration_email(user.username, user.email, token)
-            user = controller.createNewUser(form.data['username'],             form.data['email'], form.data['password'], request.remote_addr)
             babel_flash_message('Sent verification email to {data}', user.email)
         except Exception as e:
             babel_flash_message('Could not create user. Exception: {data}', e)
+            if user:
+                user.delete()
         return redirect(url_for('index'))
     return render_template('forms/register.html', form=form)
 
