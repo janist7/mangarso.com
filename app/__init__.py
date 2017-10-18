@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 from app.config import dev_config, prod_config
 
-app.config.from_object(dev_config)
+app.config.from_object(prod_config)
 
 from app.database import db
 from app.extensions import (
