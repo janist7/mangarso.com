@@ -3,7 +3,7 @@ from app.extensions import celery, mail
 from app.database import db
 from celery.signals import task_postrun
 from flask_mail import Message
-from app.decorators import with_request_context
+from app import with_request_context
 from app.utils import utils
 
 
