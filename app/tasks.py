@@ -3,12 +3,9 @@ from app.extensions import celery, mail
 from app.database import db
 from celery.signals import task_postrun
 from flask_mail import Message
-from app import with_request_context
-from app.utils import utils
 
 
 # Sends registration e-mail
-@with_request_context
 @celery.task
 def send_registration_email(user, email, token):
     msg = Message(
@@ -16,10 +13,10 @@ def send_registration_email(user, email, token):
         sender='no-reply@recipes.com',
         recipients=[email]
     )
-    URL = utils.hosturl(url_for('auth.verify', token=token, _external=True))
     msg.body = render_template(
         'mail/registration.mail',
-        URL=URL
+        user=user,
+        token=token
     )
     mail.send(msg)
 
