@@ -1,10 +1,19 @@
-# Recipe Website
+# Udacity Project 6
 
 ## Description
 
 This site is a recipe site that has authentification/authorization and uses CRUD operations to manipulate user added data.
 
-### Prerequisites
+## Website
+
+Located at 18.194.69.8 (http://www.mangarso.com/) ssh port 2200.
+
+## Changes compared to a local install
+
+Added in /etc/hosts 127.0.0.1 mangarso.com www.mangarso.com to fix email verify links
+Removed SERVER_NAME from app/config.py as that causes 404 errors
+
+## Prerequisites
 
 Requires vagrant virtual machine
 Requires a client secrets file at flask-bones/client_secrets.json. And changes to data-clientid in app/auth/templates/components/google_login.html
