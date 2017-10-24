@@ -36,6 +36,7 @@ def url_for_other_page(remove_args=[], **kwargs):
     return url_for(request.endpoint, **args)
 
 
+# Not used for now but might be usefull later (from here -> https://www.julo.ch/blog/why-flask-can-suck/)
 def hosturl(url):
 	host = app.config['HOST']
 	if host.endswith('/'):

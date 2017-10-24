@@ -105,3 +105,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 
 Thanks to Billie Thompson for providing a nice readme [template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
 Thanks to Corey Burmeister for making a [flask mvc](https://github.com/cburmeister/flask-bones) base/example.
+Thanks for Alexander Jung-Loddenkemper for his [blogpost](https://www.julo.ch/blog/why-flask-can-suck/) about fixing some flask issues.
