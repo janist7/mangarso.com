@@ -5,10 +5,9 @@ import sys
 import os.path
 from flask import Flask, g, render_template, request, redirect, url_for
 
+# Needs to be here so that vagrant and wsgi version both behave the same way when importing.
 app = Flask(__name__)
-
 from app.config import dev_config, prod_config
-
 app.config.from_object(prod_config)
 
 from app.database import db
@@ -32,6 +31,7 @@ def enable_api_endpoints(enabled=False):
     if enabled is True:
         api.create_api(Category, methods=['GET'])
         api.create_api(Recipe, methods=['GET'])
+
 
 # Lazy registering off extensions
 def register_extensions(app):
